@@ -1,0 +1,61 @@
+<%- include("../../partials/header"); %>
+<title>Blog Master - Categorias</title>
+</head>
+<body>
+
+    <%- include("../../partials/navbar"); %>
+
+    <div class="container">
+
+        <h2 class="my-3">Categorias</h2>
+        <hr>
+
+        <a href="/admin/categories/new" class="btn btn-success my-2" >Nova categoria</a>
+
+
+            <div class="table-responsive-sm">
+                <table class="table table-hover table-dark table-bordered table-sm text-center">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Título</th>
+                            <th>Slug</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% categories.forEach(category => { %>
+                            <tr>
+                                <th> <%= category.id %> </th>
+                                <th> <%= category.title %> </th>
+                                <th> <%= category.slug %> </th>
+                                <th>
+                                    <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-primary btn-sm">Editar</a>
+
+                                    <form action="/categories/delete" method="POST" style="display: inline;" onsubmit="deletar(event, this)">
+                                        <input type="hidden" name="id" value="<%= category.id %>">
+                                        <button class="btn btn-danger btn-sm   ">Excluir</button>
+                                    </form>
+                                </th>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+
+</body>
+
+<%- include("../../partials/footer.ejs"); %>
+
+<script>
+
+    function deletar(event, form){
+        event.preventDefault();
+        let decisao = confirm("Deseja excluir esta categoria?");
+        if(decisao){
+            form.submit();
+        }
+    };
+</script>

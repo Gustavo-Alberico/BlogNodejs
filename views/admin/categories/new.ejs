@@ -1,0 +1,33 @@
+<%- include("../../partials/header"); %>
+    <title>Blog Master - Nova categoria</title>
+</head>
+
+<body>
+    
+    <%- include("../../partials/navbar"); %>
+
+    <div class="container">
+
+        <!-- <hr> -->
+        <h2 class="mt-4 mb-2 ml-4">Cadastro de categorias</h2>
+        <hr>
+
+        <div class="w-75 mx-auto">
+            <div class="card ">
+                <div class="card-header ">
+                    <h4>Cadastrar categoria</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/categories/save" method="POST">
+                        <input class="form-control mb-2" type="text" id="nomeCategoria" name="title" placeholder="Defina o nome da categoria" >
+                        <button class="btn btn-success mb-3">Enviar</button>
+            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<%- include("../../partials/footer.ejs"); %>

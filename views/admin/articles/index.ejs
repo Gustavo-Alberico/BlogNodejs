@@ -1,0 +1,69 @@
+<%- include("../../partials/header"); %>
+<title>Blog Master - Artigos</title>
+</head>
+<body>
+
+    <%- include("../../partials/navbar"); %>
+
+    <div class="container">
+
+        <h2 class="my-3">Artigos</h2>
+        <hr>
+
+        <a href="/admin/articles/new" class="btn btn-success my-2" >Novo artigo</a>
+
+
+            <div class="table-responsive-sm">
+                <table class="table table-hover table-dark table-bordered table-sm text-center">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Título</th>
+                            <th>Slug</th>
+                            <th>Categoria</th>
+                            <th>Usuário</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% articles.forEach( articles => { %>
+                            <tr>
+                                <td> <%= articles.id %> </td>
+                                <td> <%= articles.title %> </td>
+                                <td> <%= articles.slug %> </td>
+                                <td> <%= articles.category.title %> </td>
+                                <% users.forEach(users =>{ %>
+                                    <% if(users.id == articles.userId){ %>
+                                        <td> <%= users.username %> </td>
+                                    <% } %>
+                                
+                                <% }) %> 
+                                <td> 
+                                    <a href="/admin/articles/edit/<%= articles.id %>" class="btn btn-primary btn-sm">Editar</a>
+                                    <form action="/articles/delete" method="POST" style="display: inline;" onsubmit="deletar(event, this)">
+                                        <input type="hidden" name="id" value="<%= articles.id %>">
+                                        <button class="btn btn-danger btn-sm">Excluir</button>
+                                    </form>    
+                                </td>
+                            </tr>
+                        <%}) %>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+
+</body>
+
+<%- include("../../partials/footer.ejs"); %>
+
+<script>
+
+    function deletar(event, form){
+        event.preventDefault();
+        let decisao = confirm("Deseja excluir este artigo?");
+        if(decisao){
+            form.submit();
+        }
+    };
+</script>

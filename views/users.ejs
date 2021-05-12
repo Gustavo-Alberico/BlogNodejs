@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs"); %>
+    <title>Master Blog - Autores </title>
+</head>
+
+
+
+<body>
+
+    <%- include("partials/navbarClient.ejs"); %>
+    <div class="container mt-4">
+        <h1>Autores</h1>
+        <div class="card">
+            <div class="card-header">
+                <h4 class="capitalized"><%= page %> </h4>
+            </div>
+            <div class="card-body">
+                <!-- <div class="row"> -->
+                    <!-- Adicionar imagem no db -->
+                    <% users.forEach(users =>{ %>
+                        <% if(page == users.username) { %>
+                            
+                        <% } %> 
+                         
+                    <% }) %> 
+                <!-- </div> -->
+ 
+            </div>
+        </div>
+    </div>
+
+<%- include("partials/footer.ejs"); %>

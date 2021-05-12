@@ -1,0 +1,40 @@
+<%- include("../../partials/header"); %>
+    <title>Blog Master - Listagem de usuarios</title>
+</head>
+<%- include("../../partials/navbar"); %>
+
+<body>
+    <div class="container mt-4">
+        <h2>Listagem de usuários</h2>
+        <a href="/admin/users/create" class="mt-4 btn btn-success btn-block">Cadastrar novo usuário</a>
+        <div class="table-responsive mt-4">
+            <table class="table table-hover table-dark table-bordered table-sm text-center">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Usuário</th>
+                    <th scope="col">Email cadastrado</th>
+                    <th scope="col">Nivel de acesso</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% users.forEach(users =>{ %>
+                    <tr>
+                        <th scope="row"><%= users.id %></th>
+                        <td><%= users.username %></td>
+                        <td><%= users.email %> </td>
+                        <td><%= users.accesslevel === 1 ? "Administrador" : "Editor"  %> </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                <% }) %>
+    
+                </tbody>
+              </table>
+        </div>
+    </div>
+</body>
+
+<%- include("../../partials/footer.ejs"); %>

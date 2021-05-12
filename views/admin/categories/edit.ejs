@@ -1,0 +1,34 @@
+<%- include("../../partials/header"); %>
+    <title>Blog Master - Editar categoria</title>
+</head>
+
+<body>
+    
+    <%- include("../../partials/navbar"); %>
+
+    <div class="container">
+
+        <!-- <hr> -->
+        <h2 class="mt-4 mb-2 ml-4">Edição de categorias</h2>
+        <hr>
+
+        <div class="w-75 mx-auto">
+            <div class="card ">
+                <div class="card-header ">
+                    <h4>Editar categoria</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/categories/update" method="POST">
+                        <input class="form-control mb-2" type="text" name="title" placeholder="Defina o nome da categoria" value="<%= categoria.title %>">
+                        <input type="hidden" value="<%= categoria.id %>" name="id">
+                        <button class="btn btn-success mb-3">Enviar</button>
+            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<%- include("../../partials/footer.ejs"); %>

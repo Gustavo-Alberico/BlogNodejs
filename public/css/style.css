@@ -1,0 +1,34 @@
+body {
+    background-color: #f1f1f1;
+}
+.center-display{
+    border-bottom: 1px solid #ccc;
+    padding: 70px;
+    margin-bottom: 15px;
+}
+
+.social-medias {
+    width: 200px;
+    margin: 0 auto;
+}
+.social-medias a {
+    font-size: 2rem;
+    padding: 5px;
+    margin: 10px;
+}
+.img-mycard{
+    width: 100%;
+}
+.img-mycard img {
+    width: 100%;
+}
+
+.mainClass{
+    margin-top: 30px;
+}
+.capitalized{
+    text-transform: capitalize;
+}
+.login{   
+    margin-top: 150px;
+}

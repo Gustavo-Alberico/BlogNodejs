@@ -1,0 +1,28 @@
+<%- include("../../partials/header"); %>
+    <title>Blog Master - Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card login w-75 mx-auto">
+            <div class="card-header">
+                <h2 class="text-center">Login</h2>
+            </div>
+            <div class="card-body">
+                <form action="/authenticate" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input class="form-control my-2" type="email" name="email" id="email" placeholder="email@exemplo.com" aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input class="form-control" type="password" name="password" id="password" placeholder="******" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Logar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include("../../partials/footer.ejs"); %>

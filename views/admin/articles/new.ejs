@@ -1,0 +1,76 @@
+<%- include("../../partials/header"); %>
+    <title>Blog Master - Novo Artigo</title>
+</head>
+
+<body>
+    
+    <%- include("../../partials/navbar"); %>
+
+    <div class="container">
+
+        <!-- <hr> -->
+        <h2 class="mt-4 mb-2 ml-4">Novo Artigo</h2>
+        <hr>
+
+        <div class="w-75 mx-auto">
+            <div class="card ">
+                <div class="card-header ">
+                    <h4>Novo artigo</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/articles/save" method="POST">
+                        <div class="form-group row">    
+                            <div class="col-lg-3 col-md-5 col-sm-12 mt-2">
+                                <button class="btn btn-success w-100">Cadastrar artigo</button>
+                            </div>
+                            <div class="col-lg-9 col-md-7 col-sm-12" >
+                                <input class="form-control mt-2" type="text" id="nomeCategoria" name="title" placeholder="Defina o título do artigo" >
+                            </div> 
+                        </div>
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-3">
+                                <label >Selecione a categoria: </label>
+                            </div>
+                            <div class="col-md-9">
+                                <select name="category" class="form-control mb-3">
+                                    <% categories.forEach((category) =>{ %>
+                                        <option value="<%= category.id %>"><%= category.title %> </option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-3">
+                                <label>Artigo criado por: </label>
+                            </div>
+                            <div class="col-md-9">
+                                <select name="users" class="form-control mb-3">
+                                    <% users.forEach((users) =>{ %>
+                                        <option value="<%= users.id %>"><%= users.username %> </option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </div>
+            
+                        <textarea name="body" class="form-control mb-2" rows="20" placeholder="Escreva o artigo aqui" id="article"></textarea>
+
+            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<%- include("../../partials/footer.ejs"); %>
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        language: "pt_BR",
+        selector: "#article",
+        plugins: [
+            "advlist autolink link  image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons"
+        ]
+    });
+</script>
