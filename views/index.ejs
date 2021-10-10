@@ -1,8 +1,6 @@
 <%- include("partials/header.ejs"); %>
-    <title>Master Blog</title>
+    <title>Blog Master</title>
 </head>
-
-
 
 <body>
 
@@ -81,7 +79,6 @@
                                 <li class="page-item"><a class="page-link" href="/articles/page/<%= num %>"><%= num %></a></li>
                                 <% num++ %>
                             <% } %>
-                            
                                 <li class="page-item"><a class="page-link" href="/articles/page/2">Próximo</a></li>
                             <% } %>
                         </ul>
@@ -93,7 +90,6 @@
     </div>
 
 </body>
-
 
 <script>
     tinymce.init({

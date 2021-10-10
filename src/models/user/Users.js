@@ -1,7 +1,6 @@
 const Sequelize = require("sequelize");
 const connection = require("../../database/connection");
 
-
 const User = connection.define("users", {
     email: {
         type: Sequelize.STRING,

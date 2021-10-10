@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../../models/user/Users");
 const bcrypt = require("bcryptjs");
-const adminAuth = require("../../../middlewares/adminAuth")
-
-
+const adminAuth = require("../../../middlewares/adminAuth");
 
 router.get("/admin/users", adminAuth, (req, res) =>{
     User.findAll({
@@ -22,7 +20,6 @@ router.get("/admin/users", adminAuth, (req, res) =>{
 router.get("/admin/users/create", adminAuth,  (req, res) =>{
     res.render("admin/users/create");
 });
-
 
 router.post("/users/create", adminAuth, (req, res) =>{
     let email = req.body.email;
@@ -48,8 +45,7 @@ router.post("/users/create", adminAuth, (req, res) =>{
         }else {
             res.redirect("/admin/users/create");
         }
-    })
-
+    });
     
 });
 
@@ -71,23 +67,22 @@ router.post("/authenticate", (req,res) =>{
                     id: user.id,
                     email: user.email
                 }
-                res.redirect("/admin/articles")
+                res.redirect("/admin/articles");
             } else {
-                res.redirect("/login")
+                res.redirect("/login");
             }
 
         } else{
-            res.redirect("/login")
+            res.redirect("/login");
         }
     }).catch(error =>{
-        res.redirect("/login")
+        res.redirect("/login");
     });
 }); 
-
 
 router.get("/logout", adminAuth, (req,res) =>{
     req.session.user = undefined;
     res.redirect("/");
 });
 
-module.exports = router
+module.exports = router;

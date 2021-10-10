@@ -1,6 +1,6 @@
 {
   "name": "blogmaster",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Blog pessoal ",
   "main": "index.js",
   "scripts": {
@@ -18,5 +18,6 @@
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2",
     "slugify": "^1.5.0"
-  }
+  },
+  "devDependencies": {}
 }

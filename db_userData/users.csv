@@ -1,0 +1,2 @@
+id,email,username,password,accesslevel,createdAt,updatedAt
+1,testemail@email.com,Usertest,$2a$11$xMB8eEE/86Dod1HtDKBKTetLRRZmVwOO2BVIjh2XApLj27VU8o3X.,1,2021-10-10 04:03:58,2021-10-10 04:03:58
